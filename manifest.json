@@ -1,0 +1,20 @@
+{ 
+  "manifest_version": 3,
+  "name": "Acronym resolver",
+  "description": "Quickly lookup an acronym in current webpage context",
+  "version": "0.1",
+  "version_name": "alpha",
+  "permissions": ["tabs"],
+  "host_permissions": ["http://*/*", "https://*/*", "file:///*"],
+  "background": {
+    "service_worker": "serviceWorker.js"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["http://*/*", "https://*/*", "file:///*"],
+      "match_about_blank": true,
+      "js": ["contentScript.js"]
+    }
+  ]
+}
